@@ -2,7 +2,7 @@
 ## by Daniel Toader and Kyle Bulloch
 ### Date: April 29, 2015
 #### Description
-Single page app game of Simon in AngularJS. User is given progressively more difficult patterns to remember and emulate. User score is based on number of consecutive rounds before failure. Built as an exercise in AngularJS.
+Single page app game of Simon in AngularJS. User is given progressively longer patterns to remember and emulate. User score is based on number of consecutive rounds before failure. Built as an exercise in AngularJS.
 
 #### Setup instructions
 1. Clone this git repository
@@ -21,4 +21,3 @@ python -m SimpleHTTPServer
 - CSS3
 - JavaScript
 - AngularJS ver 1.3.15
-- AngularUI Router ver 0.2.13
