@@ -11,12 +11,13 @@
     <div class="game-box">
 
       <div class="row">
-        <div class="col-sm-6" ng-init="speed = 7">
+        <div class="col-sm-8" ng-init="speed = 7">
           <input ng-model="speed" type="radio" value=7> Slow
           <input ng-model="speed" type="radio" value=4> Fast
           <input ng-model="speed" type="radio" value=2> Expert
+          <input ng-model="speed" type="radio" value=1> Random
         </div>
-        <div class="col-sm-6" id="scorebox">
+        <div class="col-sm-4" id="scorebox">
           <h3 id="score">{{score}} rounds won</h3>
         </div>
       </div>

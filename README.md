@@ -26,8 +26,8 @@ python -m SimpleHTTPServer
 
 upgrades:
 
-1. end game on first wrong click
-2. add randomization of timing for extra super hard mode
+1. *!* end game on first wrong click
+2. *!* add randomization of timing for extra super hard mode
 3. add sounds
 4. make buttons resize / move randomly on extra super hard mode
 5. high score list

@@ -13,6 +13,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   $scope.active = true;
   $scope.btnActive = "btn-active";
 
+  var randomSpeed = false;
 
   $scope.start = function() {
     user_pattern = [];
@@ -78,6 +79,11 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   }
 
   function  flashSimon() {
+    if ($scope.speed == 1 || randomSpeed) {
+      randomSpeed = true;
+      $scope.speed = Math.floor(Math.random() * 7) + 1;
+    }
+
     (function() {
       $timeout(function() {
         for (var i in simon_pattern) {
