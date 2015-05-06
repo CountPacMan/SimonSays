@@ -28,10 +28,6 @@ simon.controller("GameCtrl", function($scope, $timeout) {
     user_pattern.push(btn);
     // test if match good so far
     match();
-
-
-
-    // user_pattern.length === simon_pattern.length ? match() : "";
   };
 
   function match() {
@@ -60,26 +56,6 @@ simon.controller("GameCtrl", function($scope, $timeout) {
     $scope.fail = true;
     $scope.starting = true;
   }
-
-  // function match() {
-  //   for (var i in user_pattern) {
-  //     if (user_pattern[i] != simon_pattern[i]) {
-  //       if (i == user_pattern.length - 1) {
-  //         user_pattern = [];
-  //         simon_pattern = [];
-  //         $scope.fail = true;
-  //         $scope.starting = true;
-  //       }
-  //     } else if (i == user_pattern.length - 1) {
-        // $scope.score++;
-        // user_pattern = [];
-        // addSimon();
-        // deactivateBtns();
-        // flashSimon();
-        // activateBtns();
-  //     }
-  //   }
-  // }
 
   function deactivateBtns() {
     $scope.active = false;
