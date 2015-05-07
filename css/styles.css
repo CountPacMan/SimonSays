@@ -12,13 +12,17 @@ h3 {
   background: #404040;
 }
 
+#best {
+  font-size: 95%;
+  text-decoration: underline;
+}
+
 #scorebox {
   text-align: right;
   height: 60px;
   width: 500px;
-  position: relative;
+  /*position: relative;*/
   right: 0;
-  text-algin: right;
 }
 
 #failbox {

@@ -13,8 +13,10 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   $scope.active = true;
   $scope.btnActive = "btn-active";
   $scope.selected = 7;
+  $scope.highScore = 0;
 
   $scope.start = function() {
+    $scope.highScore = ($scope.highScore > $scope.score) ? $scope.highScore : $scope.score; //set latest high score
     user_pattern = [];
     simon_pattern = [];
     $scope.fail = false;
@@ -51,6 +53,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   }
 
   function fail() {
+    $scope.highScore = ($scope.highScore > $scope.score) ? $scope.highScore : $scope.score; //set latest high score
     user_pattern = [];
     simon_pattern = [];
     $scope.fail = true;
