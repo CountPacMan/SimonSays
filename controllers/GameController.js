@@ -53,11 +53,15 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   };
 
   $scope.click = function(btn) {
+    synth.stop();
     user_pattern.push(btn);
     $scope.tone = tones[btn];
     synth.create();
     synth.start();
-    $timeout(function() {synth.stop()}, 300);
+
+    $timeout(function() {
+      synth.stop();
+    }, 100);
     // test if match good so far
     match();
   };
@@ -67,7 +71,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
 
     if (user_pattern.length === simon_pattern.length &&
         user_pattern[last] === simon_pattern[last]) {
-      addNew();
+      $timeout(function() {addNew()}, 100);
     } else if (user_pattern[last] != simon_pattern[last]) {
       fail();
     }
