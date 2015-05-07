@@ -4,16 +4,15 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   $scope.btn2 = "btn2";
   $scope.btn3 = "btn3";
   $scope.btn4 = "btn4";
+  $scope.tone = 500;
 
-  var btn1sfx = new Audio('../sounds/woosh.mp3');
   var context = new AudioContext();
   var osc = context.createOscillator();
-  var tone = 500;
   var synth = {
-    create: function(tone) {
+    create: function() {
       osc = context.createOscillator();
       osc.type = 0;
-      osc.frequency.value = tone;
+      osc.frequency.value = $scope.tone;
       osc.connect(context.destination);
     },
     start: function() {
@@ -55,7 +54,8 @@ simon.controller("GameCtrl", function($scope, $timeout) {
 
   $scope.click = function(btn) {
     user_pattern.push(btn);
-    synth.create(tones[btn]);
+    $scope.tone = tones[btn];
+    synth.create();
     synth.start();
     $timeout(function() {synth.stop()}, 300);
     // test if match good so far
@@ -125,6 +125,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
         for (var i in simon_pattern) {
           (function(i) {
             $timeout(function() {
+              $scope.tone = tones[simon_pattern[i]];
               $scope[simon_pattern[i]] = simon_pattern[i] + "b";
               synth.create();
               synth.start();
