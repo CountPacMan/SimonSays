@@ -28,6 +28,7 @@ upgrades:
 
 1. *!* end game on first wrong click
 2. *!* add randomization of timing for extra super hard mode
-3. add sounds
-4. make buttons resize / move randomly on extra super hard mode
+3. *!* add sounds
+4. *!* make buttons resize
 5. *!* high score list
+6. move buttons randomly on extra super hard mode
