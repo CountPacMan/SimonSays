@@ -8,11 +8,12 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   var btn1sfx = new Audio('../sounds/woosh.mp3');
   var context = new AudioContext();
   var osc = context.createOscillator();
+  var tone = 500;
   var synth = {
-    create: function() {
+    create: function(tone) {
       osc = context.createOscillator();
       osc.type = 0;
-      osc.frequency.value = 900;
+      osc.frequency.value = tone;
       osc.connect(context.destination);
     },
     start: function() {
@@ -24,6 +25,12 @@ simon.controller("GameCtrl", function($scope, $timeout) {
 };
   synth.create();
 
+  var tones = {
+    btn1: 300,
+    btn2: 500,
+    btn3: 750,
+    btn4: 900
+  };
 
   var user_pattern = [];
   var simon_pattern = [];
@@ -48,8 +55,9 @@ simon.controller("GameCtrl", function($scope, $timeout) {
 
   $scope.click = function(btn) {
     user_pattern.push(btn);
-    // btn1sfx.play();
-    // osc.stop();
+    synth.create(tones[btn]);
+    synth.start();
+    $timeout(function() {synth.stop()}, 300);
     // test if match good so far
     match();
   };
@@ -118,6 +126,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
           (function(i) {
             $timeout(function() {
               $scope[simon_pattern[i]] = simon_pattern[i] + "b";
+              synth.create();
               synth.start();
             }, $scope.speed * 100 * i);
           })(i);
@@ -126,7 +135,6 @@ simon.controller("GameCtrl", function($scope, $timeout) {
             $timeout(function() {
               $scope[simon_pattern[i]] = simon_pattern[i];
               synth.stop();
-              synth.create();
             }, $scope.speed * 10 * (i + 5));
           })(i);
         }
