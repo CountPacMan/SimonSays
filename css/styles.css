@@ -105,3 +105,17 @@ h3 {
 #btn4b {
   background: #00FF26;
 }
+
+.colorbtn.ng-enter {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.colorbtn.ng-enter.ng-enter-active {
+  width: 230px;
+  height: 230px;
+  opacity: 1;
+}

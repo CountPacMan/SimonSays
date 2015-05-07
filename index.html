@@ -29,15 +29,15 @@
       <button class="btn btn-start" ng-show="starting" ng-click="start()">START</button>
 
       <div class="row">
-        <div class="col-sm-6 game-btn {{btnActive}}" id="{{btn1}}" ng-click="active && click('btn1')">
+        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{btn1}}" ng-click="active && click('btn1')" ng-if="!starting">
         </div>
-        <div class="col-sm-6 game-btn {{btnActive}}" id="{{btn2}}" ng-click="active && click('btn2')">
+        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{btn2}}" ng-click="active && click('btn2')" ng-if="!starting">
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6 game-btn {{btnActive}}" id="{{btn3}}" ng-click="active && click('btn3')">
+        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{btn3}}" ng-click="active && click('btn3')" ng-if="!starting">
         </div>
-        <div class="col-sm-6 game-btn {{btnActive}}" id="{{btn4}}" ng-click="active && click('btn4')">
+        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{btn4}}" ng-click="active && click('btn4')" ng-if="!starting">
         </div>
       </div>
 
@@ -46,6 +46,7 @@
 </body>
   <script src="lib/angular.js"></script>
   <script src="lib/angular-ui-router.js"></script>
+  <script src="lib/angular-animate.js"></script>
   <script src="app.js"></script>
   <script src="controllers/GameController.js"></script>
 </html>
