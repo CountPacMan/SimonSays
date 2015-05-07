@@ -80,8 +80,11 @@ simon.controller("GameCtrl", function($scope, $timeout) {
     simon_pattern.push(btns[Math.floor(Math.random() * btns.length)]);
   }
 
-  function  flashSimon() {
-    if ($scope.selected == 1) {
+  function flashSimon() {
+    if (simon_pattern.length == 1) {
+      console.log(simon_pattern.length);
+      $scope.speed = 10;
+    } else if ($scope.selected == 1) {
       $scope.speed = Math.floor(Math.random() * 7) + 1;
     } else {
       $scope.speed = $scope.selected;
