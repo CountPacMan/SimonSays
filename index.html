@@ -13,18 +13,6 @@
         <h2 class="header">Totally Not Simon!</h2>
         <h5 class="header">(for legal reasons)</h5>
       </div>
-      <div class="row">
-        <div class="col-sm-7" ng-init="selected = 7">
-          <input ng-model="selected" type="radio" value=7> Slow
-          <input ng-model="selected" type="radio" value=4> Fast
-          <input ng-model="selected" type="radio" value=2> Expert
-          <input ng-model="selected" type="radio" value=1> Random
-        </div>
-        <div class="col-sm-5" id="scorebox">
-          <h3 id="score">{{score}} rounds won</h3><br>
-          <h3 id="best">High Score: {{highScore}}</h3>
-        </div>
-      </div>
 
       <div id="failbox">
         <h3 ng-show="fail" id="failtext">SIMON SAYS YOU LOSE!</h3>
@@ -44,6 +32,18 @@
         <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{buttons[3]}}" ng-click="active && click(buttons[3])" ng-if="display">
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-7" ng-init="selected = 7">
+          <input ng-model="selected" type="radio" value=7> Slow
+          <input ng-model="selected" type="radio" value=4> Fast
+          <input ng-model="selected" type="radio" value=2> Expert
+          <input ng-model="selected" type="radio" value=1> Random
+        </div>
+      </div>
+        <div class="col-sm-5" id="scorebox">
+          <h3 id="score">{{score}} rounds won</h3><br>
+          <h3 id="best">High Score: {{highScore}}</h3>
+        </div>
 
     </div>
   </div>
