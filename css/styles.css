@@ -46,12 +46,23 @@ h3 {
   margin: 0;
 }
 
+.header {
+  margin: 2px;
+}
+
 .game-btn {
   height: 230px;
   width: 230px;
   border-radius: 1000px;
   box-shadow: 0 0 20px black;
   margin: 10px;
+}
+
+.jumbotron {
+  color: #404040;
+  background: linear-gradient(to right, red, #00D5FF, #00FF26, yellow);
+  text-align: center;
+  padding: 5px;
 }
 
 .btn-active:active {
