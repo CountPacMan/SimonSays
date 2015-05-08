@@ -43,7 +43,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   $scope.btnActive = "btn-active";
   $scope.selected = 7;
   $scope.highScore = 0;
-  $scope.display = false;
+  $scope.display = true;
 
   $scope.start = function() {
     $scope.highScore = ($scope.highScore > $scope.score) ? $scope.highScore : $scope.score; //set latest high score

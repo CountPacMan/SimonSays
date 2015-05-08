@@ -108,13 +108,9 @@ h3 {
 .colorbtn.ng-enter {
   -webkit-transition: 0.25s linear all;
   transition: 0.25s linear all;
-  /*width: 0;
-  height: 0;*/
   opacity: 0;
 }
 
 .colorbtn.ng-enter.ng-enter-active {
-  /*width: 230px;
-  height: 230px;*/
   opacity: 1;
 }
