@@ -43,6 +43,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   $scope.btnActive = "btn-active";
   $scope.selected = 7;
   $scope.highScore = 0;
+  $scope.display = false;
 
   $scope.start = function() {
     $scope.highScore = ($scope.highScore > $scope.score) ? $scope.highScore : $scope.score; //set latest high score
@@ -50,6 +51,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
     simon_pattern = [];
     $scope.fail = false;
     $scope.starting = false;
+    $scope.display = true;
     $scope.score = 0;
     addSimon();
     flashSimon();
@@ -86,7 +88,10 @@ simon.controller("GameCtrl", function($scope, $timeout) {
     addSimon();
     deactivateBtns();
     if ($scope.selected == 1) {
+      $scope.display = false;
+      $scope.$apply();
       scramble();
+      $scope.display = true;
     }
     flashSimon();
     activateBtns();
@@ -137,7 +142,7 @@ function scramble() {
     if (simon_pattern.length == 1) {
       $scope.speed = 10;
     } else if ($scope.selected == 1) {
-      $scope.speed = Math.floor(Math.random() * 7) + 1;
+      $scope.speed = Math.floor(Math.random() * 8) + 2;
     } else {
       $scope.speed = $scope.selected;
     }

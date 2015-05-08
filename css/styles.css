@@ -25,6 +25,7 @@ h3 {
 }
 
 #failbox {
+  font-size: 60px;
   color: red;
   position: fixed;
   margin-left: 100px;
@@ -32,11 +33,6 @@ h3 {
   width: 300px;
   text-align: center;
   margin-top: 10%;
-}
-
-#failtext {
-  font-size: 40px;
-
 }
 
 .game-box {
@@ -110,15 +106,15 @@ h3 {
 }
 
 .colorbtn.ng-enter {
-  -webkit-transition: 0.5s linear all;
-  transition: 0.5s linear all;
-  width: 0;
-  height: 0;
+  -webkit-transition: 0.25s linear all;
+  transition: 0.25s linear all;
+  /*width: 0;
+  height: 0;*/
   opacity: 0;
 }
 
 .colorbtn.ng-enter.ng-enter-active {
-  width: 230px;
-  height: 230px;
+  /*width: 230px;
+  height: 230px;*/
   opacity: 1;
 }
