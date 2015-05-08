@@ -91,7 +91,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
       $scope.display = false;
       $scope.$apply();
       scramble();
-      $scope.display = true;
+      $timeout(function() {$scope.display = true}, 150);
     }
     flashSimon();
     activateBtns();

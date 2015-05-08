@@ -114,3 +114,13 @@ h3 {
 .colorbtn.ng-enter.ng-enter-active {
   opacity: 1;
 }
+
+.colorbtn.ng-leave {
+  -webkit-transition: 0.15s linear all;
+  transition: 0.15s linear all;
+  opacity: 1;
+}
+
+.colorbtn.ng-leave.ng-leave-active {
+  opacity: 0;
+}
