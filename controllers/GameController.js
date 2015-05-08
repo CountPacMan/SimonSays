@@ -6,6 +6,9 @@ simon.controller("GameCtrl", function($scope, $timeout) {
   $scope.btn4 = "btn4";
   $scope.tone = 500;
 
+
+  $scope.buttons = [$scope.btn1, $scope.btn2, $scope.btn3, $scope.btn4];
+
   var context = new AudioContext();
   var osc = context.createOscillator();
   var synth = {
@@ -82,9 +85,25 @@ simon.controller("GameCtrl", function($scope, $timeout) {
     user_pattern = [];
     addSimon();
     deactivateBtns();
+    if ($scope.selected == 1) {
+      scramble();
+    }
     flashSimon();
     activateBtns();
   }
+
+  /**
+ * Randomize array element order in-place.
+ * Using Fisher-Yates shuffle algorithm.
+ */
+function scramble() {
+    for (var i = $scope.buttons.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = $scope.buttons[i];
+        $scope.buttons[i] = $scope.buttons[j];
+        $scope.buttons[j] = temp;
+    }
+}
 
   function fail() {
     $scope.highScore = ($scope.highScore > $scope.score) ? $scope.highScore : $scope.score; //set latest high score
@@ -116,7 +135,6 @@ simon.controller("GameCtrl", function($scope, $timeout) {
 
   function flashSimon() {
     if (simon_pattern.length == 1) {
-      console.log(simon_pattern.length);
       $scope.speed = 10;
     } else if ($scope.selected == 1) {
       $scope.speed = Math.floor(Math.random() * 7) + 1;
@@ -129,8 +147,9 @@ simon.controller("GameCtrl", function($scope, $timeout) {
         for (var i in simon_pattern) {
           (function(i) {
             $timeout(function() {
+              var position = $scope.buttons.indexOf(simon_pattern[i]);
               $scope.tone = tones[simon_pattern[i]];
-              $scope[simon_pattern[i]] = simon_pattern[i] + "b";
+              $scope.buttons[position] = simon_pattern[i] + "b";
               synth.create();
               synth.start();
             }, $scope.speed * 100 * i);
@@ -138,7 +157,8 @@ simon.controller("GameCtrl", function($scope, $timeout) {
 
           (function(i) {
             $timeout(function() {
-              $scope[simon_pattern[i]] = simon_pattern[i];
+              var position = $scope.buttons.indexOf(simon_pattern[i] + "b");
+              $scope.buttons[position] = simon_pattern[i];
               synth.stop();
             }, $scope.speed * 10 * (i + 5));
           })(i);

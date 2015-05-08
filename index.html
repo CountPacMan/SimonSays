@@ -30,15 +30,15 @@
       <button class="btn btn-start" ng-show="starting" ng-click="start()">START</button>
 
       <div class="row">
-        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{btn1}}" ng-click="active && click('btn1')" ng-if="!starting">
+        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{buttons[0]}}" ng-click="active && click(buttons[0])" ng-if="!starting">
         </div>
-        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{btn2}}" ng-click="active && click('btn2')" ng-if="!starting">
+        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{buttons[1]}}" ng-click="active && click(buttons[1])" ng-if="!starting">
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{btn3}}" ng-click="active && click('btn3')" ng-if="!starting">
+        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{buttons[2]}}" ng-click="active && click(buttons[2])" ng-if="!starting">
         </div>
-        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{btn4}}" ng-click="active && click('btn4')" ng-if="!starting">
+        <div class="col-sm-6 game-btn {{btnActive}} colorbtn" id="{{buttons[3]}}" ng-click="active && click(buttons[3])" ng-if="!starting">
         </div>
       </div>
 
