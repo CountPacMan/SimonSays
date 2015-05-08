@@ -16,13 +16,22 @@ simon.controller("GameCtrl", function($scope, $timeout) {
       osc = context.createOscillator();
       osc.type = 0;
       osc.frequency.value = $scope.tone;
-      osc.connect(context.destination);
-    },
-    start: function() {
+      gainNode = context.createGain();
+      osc.connect(gainNode);
+      gainNode.connect(context.destination)
+      gainNode.gain.value = 0.0;
       osc.start();
     },
+    start: function() {
+      var now = context.currentTime;
+      gainNode.gain.cancelScheduledValues(now);
+      $timeout(function() {gainNode.gain.linearRampToValueAtTime(1.0, now + 0.04)}, 0.021);
+    },
     stop: function() {
-      osc.stop();
+      var now = audioContext.currentTime;
+      gainNode.gain.cancelScheduledValues(now);
+      gainNode.gain.setValueAtTime(gainNode.gain.value, now);
+      gainNode.gain.linearRampToValueAtTime(0.0, now + 0.02);
     }
 };
   synth.create();
@@ -66,7 +75,7 @@ simon.controller("GameCtrl", function($scope, $timeout) {
 
     $timeout(function() {
       synth.stop();
-    }, 100);
+    }, 250);
     // test if match good so far
     match();
   };
@@ -97,10 +106,6 @@ simon.controller("GameCtrl", function($scope, $timeout) {
     activateBtns();
   }
 
-  /**
- * Randomize array element order in-place.
- * Using Fisher-Yates shuffle algorithm.
- */
 function scramble() {
     for (var i = $scope.buttons.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
